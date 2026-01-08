@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SYADOW Player Input — 18 Holes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../css/player-input.css" />
+</head>
+<body>
+<body>
+
+<!-- ✅ 공통 Club Datalist : 페이지 전체에서 사용 -->
+<datalist id="clubDatalist">
+  <!-- Driver -->
+  <option value="DR"></option>
+
+  <!-- Woods -->
+  <option value="3WD"></option>
+  <option value="4WD"></option>
+  <option value="5WD"></option>
+  <option value="7WD"></option>
+  <option value="9WD"></option>
+
+  <!-- Hybrids / DI -->
+  <option value="2HYB"></option>
+  <option value="3HYB"></option>
+  <option value="4HYB"></option>
+  <option value="5HYB"></option>
+  <option value="2DI"></option>
+  <option value="3DI"></option>
+  <option value="4DI"></option>
+  <!-- Irons -->
+  <option value="2I"></option>
+  <option value="3I"></option>
+  <option value="4I"></option>
+  <option value="5I"></option>
+  <option value="6I"></option>
+  <option value="7I"></option>
+  <option value="8I"></option>
+  <option value="9I"></option>
+
+  <!-- Wedges -->
+  <option value="PW"></option>
+
+
+  <!-- Putter -->
+  <option value="PUTT"></option>
+</datalist>
+
+<h2>SYADOW Player Input Form</h2>
+
+
+<!-- 상단 입력 영역 -->
+<div class="top-inputs">
+  <div class="top-field">
+    <label for="mode">Mode</label><br />
+    <select id="mode">
+      <option value="tournament">Tournament</option>
+      <option value="practice">Practice Round</option>
+    </select>
+  </div>
+
+  <div class="top-field">
+    <label for="date">Date</label><br />
+    <input id="date" type="date" />
+  </div>
+
+  <div class="top-field">
+    <label for="courseName">Course Name</label><br />
+    <input id="courseName" type="text" placeholder="Augusta National" />
+  </div>
+
+  <div class="top-field">
+    <label for="unit">Distance Unit</label><br />
+    <select id="unit">
+      <option value="yards">Yards</option>
+      <option value="meters">Meters</option>
+    </select>
+  </div>
+
+  <div class="top-field">
+    <label for="teeTime">Tee Time</label><br />
+    <select id="teeTime">
+      <option value="morning">Morning</option>
+      <option value="afternoon">Afternoon</option>
+    </select>
+  </div>
+
+  <div class="top-field">
+    <label for="playOrder">Play Order</label><br />
+    <select id="playOrder">
+      <option value="front-first">Front 9 First</option>
+      <option value="back-first">Back 9 First</option>
+    </select>
+  </div>
+
+  <!-- Temperature -->
+  <div class="top-field">
+    <label for="tempUnit">Temp Unit</label><br />
+    <select id="tempUnit">
+      <option value="f">Fahrenheit (°F)</option>
+      <option value="c">Celsius (°C)</option>
+    </select>
+  </div>
+
+  <div class="top-field">
+    <label for="tempLow">Temp Low</label><br />
+    <input id="tempLow" type="number" inputmode="decimal" placeholder="Low" />
+  </div>
+
+  <div class="top-field">
+    <label for="tempHigh">Temp High</label><br />
+    <input id="tempHigh" type="number" inputmode="decimal" placeholder="High" />
+  </div>
+
+  <!-- Wind -->
+   <div class="top-field">
+    <label for="windSpeed">Wind Speed(Low) (mph)</label><br />
+    <input id="windSpeed" type="number" inputmode="decimal" placeholder="mph" />
+  </div>
+  <div class="top-field">
+    <label for="windSpeed">Wind Speed(High) (mph)</label><br />
+    <input id="windSpeed" type="number" inputmode="decimal" placeholder="mph" />
+  </div>
+
+ 
+  
+
+  <!-- Grass Types -->
+  <div class="top-field">
+    <label for="fairwayGrass">Fairway Grass</label><br />
+    <select id="fairwayGrass">
+      <option value="">Select</option>
+      <option value="bent">Bentgrass</option>
+      <option value="poa">Poa annua</option>
+      <option value="bermuda">Bermuda</option>
+      <option value="rye">Ryegrass</option>
+      <option value="zoysia">Zoysia</option>
+      <option value="mix">Mixed</option>
+      <option value="other">Other</option>
+    </select>
+    <input id="fairwayGrassNote" type="text" placeholder="Custom / mix" />
+  </div>
+  <div class="top-field">
+    <label for="greenGrass">Green Grass</label><br />
+    <select id="greenGrass">
+      <option value="">Select</option>
+      <option value="bent">Bentgrass</option>
+      <option value="poa">Poa annua</option>
+      <option value="bermuda">Bermuda</option>
+      <option value="rye">Ryegrass</option>
+      <option value="zoysia">Zoysia</option>
+      <option value="mix">Mixed</option>
+      <option value="other">Other</option>
+    </select>
+    <input id="greenGrassNote" type="text" placeholder="Custom / mix" />
+  </div>
+  <div class="top-field">
+    <label for="RoughGrass">Rough Grass</label><br />
+    <select id="greenGrass">
+      <option value="">Select</option>
+      <option value="bent">Bentgrass</option>
+      <option value="poa">Poa annua</option>
+      <option value="bermuda">Bermuda</option>
+      <option value="rye">Ryegrass</option>
+      <option value="zoysia">Zoysia</option>
+      <option value="mix">Mixed</option>
+      <option value="other">Other</option>
+    </select>
+    <input id="RoughGressNote" type="text" placeholder="Custom / mix" />
+  </div>
+</div>
+
+<!-- 공통 클럽 리스트 -->
+<datalist id="clubList">
+  <option value="DR"></option>
+  <option value="WD"></option>
+  <option value="HYB"></option>
+  <option value="DI"></option>
+  <option value="I"></option>
+  <option value="WG"></option>
+  <option value="PUTT"></option>
+</datalist>
+
+<!-- FRONT 9 -->
+<div class="section-title">Front 9 (F1–F9)</div>
+
+<table id="front9Table" class="score-table">
+  <thead>
+    <tr>
+      <th class="desc">Hole</th>
+      <th>F1</th><th>F2</th><th>F3</th><th>F4</th><th>F5</th><th>F6</th><th>F7</th><th>F8</th><th>F9</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Par -->
+    <tr>
+      <td class="desc">Par</td>
+      <td><select class="par-select" data-hole="F1"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="F2"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="F3"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="F4"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="F5"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="F6"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="F7"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="F8"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="F9"><option>3</option><option>4</option><option>5</option></select></td>
+    </tr>
+
+    
+
+    <!-- Pin (Green 9-grid) -->
+    <tr>
+      <td class="desc">Pin (9-grid)</td>
+      <td><button type="button" class="pin-btn" data-hole="F1" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="F2" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="F3" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="F4" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="F5" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="F6" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="F7" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="F8" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="F9" data-popup="green">Select</button></td>
+    </tr>
+
+    <!-- Shots (vertical blocks) -->
+    <tr>
+      <td class="desc">Shots</td>
+      <td>
+        <div class="shot-column" data-hole="F1"></div>
+        <button type="button" class="add-shot-btn" data-hole="F1">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="F2"></div>
+        <button type="button" class="add-shot-btn" data-hole="F2">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="F3"></div>
+        <button type="button" class="add-shot-btn" data-hole="F3">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="F4"></div>
+        <button type="button" class="add-shot-btn" data-hole="F4">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="F5"></div>
+        <button type="button" class="add-shot-btn" data-hole="F5">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="F6"></div>
+        <button type="button" class="add-shot-btn" data-hole="F6">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="F7"></div>
+        <button type="button" class="add-shot-btn" data-hole="F7">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="F8"></div>
+        <button type="button" class="add-shot-btn" data-hole="F8">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="F9"></div>
+        <button type="button" class="add-shot-btn" data-hole="F9">+ Shot</button>
+      </td>
+    </tr>
+
+    <!-- Putter Steps -->
+    <tr>
+      <td class="desc">Putter Steps</td>
+      <td>
+        <div class="putt-column" data-hole="F1"></div>
+        <button type="button" class="add-putt-btn" data-hole="F1">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="F2"></div>
+        <button type="button" class="add-putt-btn" data-hole="F2">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="F3"></div>
+        <button type="button" class="add-putt-btn" data-hole="F3">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="F4"></div>
+        <button type="button" class="add-putt-btn" data-hole="F4">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="F5"></div>
+        <button type="button" class="add-putt-btn" data-hole="F5">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="F6"></div>
+        <button type="button" class="add-putt-btn" data-hole="F6">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="F7"></div>
+        <button type="button" class="add-putt-btn" data-hole="F7">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="F8"></div>
+        <button type="button" class="add-putt-btn" data-hole="F8">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="F9"></div>
+        <button type="button" class="add-putt-btn" data-hole="F9">+ Putt</button>
+      </td>
+    </tr>
+
+    <!-- Tap-In -->
+    <tr>
+      <td class="desc">Tap-In</td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="F1" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="F2" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="F3" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="F4" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="F5" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="F6" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="F7" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="F8" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="F9" />✓</label></td>
+    </tr>
+
+    <!-- Penalty -->
+    <tr>
+      <td class="desc">Penalty</td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="F1" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="F2" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="F3" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="F4" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="F5" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="F6" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="F7" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="F8" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="F9" /></td>
+    </tr>
+
+    <!-- Auto Score (placeholder) -->
+    <tr>
+      <td class="desc">Auto Score</td>
+      <td><span class="auto-score" data-hole="F1"></span></td>
+      <td><span class="auto-score" data-hole="F2"></span></td>
+      <td><span class="auto-score" data-hole="F3"></span></td>
+      <td><span class="auto-score" data-hole="F4"></span></td>
+      <td><span class="auto-score" data-hole="F5"></span></td>
+      <td><span class="auto-score" data-hole="F6"></span></td>
+      <td><span class="auto-score" data-hole="F7"></span></td>
+      <td><span class="auto-score" data-hole="F8"></span></td>
+      <td><span class="auto-score" data-hole="F9"></span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- BACK 9 -->
+<div class="section-title">Back 9 (B1–B9)</div>
+
+<table id="back9Table" class="score-table">
+  <thead>
+    <tr>
+      <th class="desc">Hole</th>
+      <th>B1</th><th>B2</th><th>B3</th><th>B4</th><th>B5</th><th>B6</th><th>B7</th><th>B8</th><th>B9</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Par -->
+    <tr>
+      <td class="desc">Par</td>
+      <td><select class="par-select" data-hole="B1"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="B2"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="B3"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="B4"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="B5"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="B6"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="B7"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="B8"><option>3</option><option>4</option><option>5</option></select></td>
+      <td><select class="par-select" data-hole="B9"><option>3</option><option>4</option><option>5</option></select></td>
+    </tr>
+
+    
+
+    <!-- Pin -->
+    <tr>
+      <td class="desc">Pin (9-grid)</td>
+      <td><button type="button" class="pin-btn" data-hole="B1" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="B2" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="B3" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="B4" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="B5" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="B6" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="B7" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="B8" data-popup="green">Select</button></td>
+      <td><button type="button" class="pin-btn" data-hole="B9" data-popup="green">Select</button></td>
+    </tr>
+
+    <!-- Shots -->
+    <tr>
+      <td class="desc">Shots</td>
+      <td>
+        <div class="shot-column" data-hole="B1"></div>
+        <button type="button" class="add-shot-btn" data-hole="B1">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="B2"></div>
+        <button type="button" class="add-shot-btn" data-hole="B2">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="B3"></div>
+        <button type="button" class="add-shot-btn" data-hole="B3">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="B4"></div>
+        <button type="button" class="add-shot-btn" data-hole="B4">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="B5"></div>
+        <button type="button" class="add-shot-btn" data-hole="B5">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="B6"></div>
+        <button type="button" class="add-shot-btn" data-hole="B6">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="B7"></div>
+        <button type="button" class="add-shot-btn" data-hole="B7">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="B8"></div>
+        <button type="button" class="add-shot-btn" data-hole="B8">+ Shot</button>
+      </td>
+      <td>
+        <div class="shot-column" data-hole="B9"></div>
+        <button type="button" class="add-shot-btn" data-hole="B9">+ Shot</button>
+      </td>
+    </tr>
+
+    <!-- Putter Steps -->
+    <tr>
+      <td class="desc">Putter Steps</td>
+      <td>
+        <div class="putt-column" data-hole="B1"></div>
+        <button type="button" class="add-putt-btn" data-hole="B1">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="B2"></div>
+        <button type="button" class="add-putt-btn" data-hole="B2">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="B3"></div>
+        <button type="button" class="add-putt-btn" data-hole="B3">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="B4"></div>
+        <button type="button" class="add-putt-btn" data-hole="B4">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="B5"></div>
+        <button type="button" class="add-putt-btn" data-hole="B5">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="B6"></div>
+        <button type="button" class="add-putt-btn" data-hole="B6">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="B7"></div>
+        <button type="button" class="add-putt-btn" data-hole="B7">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="B8"></div>
+        <button type="button" class="add-putt-btn" data-hole="B8">+ Putt</button>
+      </td>
+      <td>
+        <div class="putt-column" data-hole="B9"></div>
+        <button type="button" class="add-putt-btn" data-hole="B9">+ Putt</button>
+      </td>
+    </tr>
+
+    <!-- Tap-In -->
+    <tr>
+      <td class="desc">Tap-In</td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="B1" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="B2" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="B3" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="B4" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="B5" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="B6" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="B7" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="B8" />✓</label></td>
+      <td><label class="tapin-label"><input type="checkbox" data-hole="B9" />✓</label></td>
+    </tr>
+
+    <!-- Penalty -->
+    <tr>
+      <td class="desc">Penalty</td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="B1" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="B2" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="B3" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="B4" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="B5" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="B6" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="B7" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="B8" /></td>
+      <td><input type="number" min="0" inputmode="numeric" class="penalty-input" data-hole="B9" /></td>
+    </tr>
+
+    <!-- Auto Score -->
+    <tr>
+      <td class="desc">Auto Score</td>
+      <td><span class="auto-score" data-hole="B1"></span></td>
+      <td><span class="auto-score" data-hole="B2"></span></td>
+      <td><span class="auto-score" data-hole="B3"></span></td>
+      <td><span class="auto-score" data-hole="B4"></span></td>
+      <td><span class="auto-score" data-hole="B5"></span></td>
+      <td><span class="auto-score" data-hole="B6"></span></td>
+      <td><span class="auto-score" data-hole="B7"></span></td>
+      <td><span class="auto-score" data-hole="B8"></span></td>
+      <td><span class="auto-score" data-hole="B9"></span></td>
+    </tr>
+  </tbody>
+</table>
+<!-- SCORE SUMMARY -->
+<div class="score-summary">
+  <div class="score-box">
+    <div class="score-label">Front 9</div>
+    <div class="score-value" id="scoreFront">–</div>
+  </div>
+
+  <div class="score-box">
+    <div class="score-label">Back 9</div>
+    <div class="score-value" id="scoreBack">–</div>
+  </div>
+
+  <div class="score-box total">
+    <div class="score-label">Total</div>
+    <div class="score-value" id="scoreTotal">–</div>
+  </div>
+</div>
+
+<!-- 저장 버튼 -->
+<div class="save-wrap">
+  <button id="saveBtn" class="save-btn">Save</button>
+</div>
+
+
+<!-- Popup Overlay (Pin, Direction, Wind) -->
+<div id="popupOverlay" class="popup-overlay hidden">
+  <div class="popup">
+    <div id="popupTitle" class="popup-title">Select</div>
+    <div id="popupGrid" class="popup-grid"></div>
+    <button type="button" id="popupClose" class="popup-close">Close</button>
+  </div>
+</div>
+
+<script type="module" src="player-input.js"></script>
+</body>
+</html>

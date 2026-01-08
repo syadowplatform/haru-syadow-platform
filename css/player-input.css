@@ -1,0 +1,551 @@
+/* ======================================================
+   SYADOW Player Input (Page CSS)
+   - Keeps your existing class names
+   - Applies Syadow brand colors & UI style
+   Brand:
+   Midnight Blue: #0B132B
+   Gunmetal: #2C2F33 → #3A506B
+   Rose Gold: #D4A373 → #E4B48E
+   ====================================================== */
+
+:root{
+  --midnight:#0B132B;
+  --gun1:#2C2F33;
+  --gun2:#3A506B;
+  --rose1:#D4A373;
+  --rose2:#E4B48E;
+
+  --bg0:#070D1F;
+  --text:#EAF0FA;
+  --muted:#93A6BD;
+  --line: rgba(255,255,255,.10);
+
+  --card: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  --cardInner: linear-gradient(180deg, rgba(58,80,107,.14), rgba(11,19,43,0));
+  --inputBg: linear-gradient(180deg, rgba(44,47,51,.40), rgba(44,47,51,.18));
+
+  --shadow: 0 18px 50px rgba(0,0,0,.45);
+  --shadow2: 0 10px 26px rgba(0,0,0,.35);
+
+  --r12:12px;
+  --r16:16px;
+}
+/* ===== Select dropdown (options) readability fix ===== */
+select{
+  color-scheme: dark; /* 브라우저 기본 UI를 다크로 맞추기(효과 큼) */
+}
+
+/* 펼쳐지는 옵션 영역(가능한 범위에서) */
+select option{
+  background: #EAF0FA;
+  color: #0B132B;
+}
+
+/* 일부 브라우저에서 optgroup도 따로 지정 필요 */
+select optgroup{
+  background: #EAF0FA;
+  color: #0B132B;
+}
+
+/* Base */
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
+
+body{
+  font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","Noto Sans KR",Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(900px 520px at 20% 12%, rgba(58,80,107,.35), transparent 60%),
+    radial-gradient(800px 520px at 85% 18%, rgba(212,163,115,.14), transparent 55%),
+    radial-gradient(900px 700px at 50% 110%, rgba(58,80,107,.25), transparent 62%),
+    linear-gradient(180deg, var(--bg0), var(--midnight));
+  color: var(--text);
+  margin: 16px;
+}
+
+h2{
+  text-align:center;
+  margin-bottom: 14px;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: .4px;
+}
+
+/* ---------------------------
+   Top inputs
+--------------------------- */
+.top-inputs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: var(--r16);
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow2);
+  backdrop-filter: blur(10px);
+}
+
+.top-field{
+  display:flex;
+  flex-direction:column;
+  gap: 4px;
+  width: 140px;
+}
+
+.top-field label{
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(234,240,250,.9);
+  letter-spacing: .2px;
+}
+
+/* Inputs look */
+.top-field input,
+.top-field select,
+.score-table td input,
+.score-table td select,
+.shot-row input,
+.shot-row select{
+  padding: 8px 10px;
+  font-size: 11px;
+  min-width: 60px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  background: var(--inputBg);
+  color: var(--text);
+  outline: none;
+  transition: .16s ease;
+}
+
+.top-field input::placeholder,
+.shot-row input::placeholder{
+  color: rgba(147,166,189,.55);
+}
+
+.top-field input:focus,
+.top-field select:focus,
+.score-table td input:focus,
+.score-table td select:focus,
+.shot-row input:focus,
+.shot-row select:focus{
+  border-color: rgba(212,163,115,.60);
+  box-shadow: 0 0 0 3px rgba(212,163,115,.18);
+}
+
+/* Buttons (base) */
+.wind-btn,
+.direction-btn,
+.add-shot-btn,
+.add-putt-btn,
+.pin-btn,
+.popup-close{
+  font-size: 11px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  color: var(--text);
+  cursor: pointer;
+  transition: .16s ease;
+}
+
+.wind-btn:hover,
+.direction-btn:hover,
+.add-shot-btn:hover,
+.add-putt-btn:hover,
+.pin-btn:hover,
+.popup-close:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.16);
+}
+
+.wind-btn:active,
+.direction-btn:active,
+.add-shot-btn:active,
+.add-putt-btn:active,
+.pin-btn:active,
+.popup-close:active{
+  transform: translateY(0);
+}
+
+/* Primary actions: use Rose Gold */
+.wind-btn,
+.save-btn,
+.score-box.total{
+  border: none;
+  color: #141414;
+  background: linear-gradient(135deg, var(--rose1), var(--rose2));
+  box-shadow: 0 14px 30px rgba(212,163,115,.22);
+  font-weight: 900;
+}
+
+/* Smaller action buttons in cells */
+.direction-btn,
+.add-shot-btn,
+.add-putt-btn,
+.pin-btn{
+  font-size: 10px;
+  padding: 6px 8px;
+}
+
+/* ---------------------------
+   Section titles
+--------------------------- */
+.section-title{
+  font-weight: 900;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: var(--r12);
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  letter-spacing: .2px;
+
+  border: 1px solid rgba(212,163,115,.28);
+  background: linear-gradient(135deg, rgba(212,163,115,.12), rgba(58,80,107,.10));
+  box-shadow: var(--shadow2);
+}
+
+/* ---------------------------
+   Table
+--------------------------- */
+.score-table{
+  width:100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-bottom: 24px;
+
+  border-radius: var(--r16);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.score-table th,
+.score-table td{
+  border: 1px solid rgba(255,255,255,.08);
+  padding: 6px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.score-table th{
+  background: linear-gradient(180deg, rgba(58,80,107,.22), rgba(11,19,43,.15));
+  color: rgba(234,240,250,.92);
+  font-weight: 900;
+}
+
+/* Make table controls fill the cell cleanly */
+.score-table td input,
+.score-table td select,
+.score-table td button{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Description cell */
+.desc{
+  background: rgba(255,255,255,.04);
+  font-weight: 900;
+  width: 80px;
+  font-size: 11px;
+  color: rgba(234,240,250,.85);
+}
+
+/* ---------------------------
+   Shot / Putt blocks
+--------------------------- */
+.shot-column,
+.putt-column{
+  display:flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.shot-block,
+.putt-block{
+  position: relative; /* needed for delete button positioning */
+  border-radius: 14px;
+  padding: 10px 10px;
+  background: var(--cardInner);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.shot-label{
+  font-size: 11px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  letter-spacing: .2px;
+}
+
+.shot-row{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.shot-row:last-child{ margin-bottom: 0; }
+
+.shot-field-label{
+  font-size: 10px;
+  color: rgba(147,166,189,.85);
+  margin-right: 4px;
+  flex: 0 0 auto;
+}
+
+/* Clock & small buttons */
+.wind-clock-btn{
+  font-size: 10px;
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  color: rgba(234,240,250,.9);
+  cursor:pointer;
+}
+
+/* Clock popup face */
+.clock-face{
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.16);
+  background: linear-gradient(180deg, rgba(44,47,51,.35), rgba(44,47,51,.16));
+  box-shadow: var(--shadow2);
+}
+
+.clock-cell{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+  color: rgba(234,240,250,.92);
+  font-weight: 900;
+  cursor: pointer;
+  transition: .15s ease;
+}
+.clock-cell:hover{
+  border-color: rgba(212,163,115,.35);
+  background: rgba(212,163,115,.10);
+}
+
+.clock-center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.05);
+  color: rgba(234,240,250,.95);
+  font-weight: 1000;
+}
+
+/* Add buttons */
+.add-shot-btn,
+.add-putt-btn{
+  margin-top: 6px;
+}
+
+/* Tap-in */
+.tapin-label{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  color: rgba(234,240,250,.9);
+}
+
+/* Penalty */
+.penalty-input{
+  font-size: 11px;
+  padding: 8px 10px;
+}
+
+/* Auto score placeholder */
+.auto-score{
+  font-size: 14px;
+  font-weight: 900;
+}
+
+/* Delete buttons */
+.shot-block .delete-shot-btn,
+.putt-block .delete-putt-btn{
+  position:absolute;
+  top: 8px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  margin: 0;
+
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 999px;
+
+  color: rgba(147,166,189,.95);
+  font-size: 14px;
+  line-height: 22px;
+  text-align:center;
+  cursor:pointer;
+  z-index: 5;
+  transition: .15s ease;
+}
+.shot-block .delete-shot-btn:hover,
+.putt-block .delete-putt-btn:hover{
+  color: rgba(234,240,250,.95);
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+}
+
+/* ---------------------------
+   Pin popup overlay
+--------------------------- */
+.popup-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index: 100;
+  backdrop-filter: blur(6px);
+}
+
+.popup-overlay.hidden{ display:none; }
+
+.popup{
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+  border-radius: 16px;
+  padding: 14px 14px;
+  min-width: 240px;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: var(--shadow);
+}
+
+.popup-title{
+  font-size: 12px;
+  font-weight: 1000;
+  margin-bottom: 10px;
+  text-align:center;
+  letter-spacing:.2px;
+}
+
+.popup-grid{
+  display:flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.popup-row{
+  display:flex;
+  gap: 6px;
+  justify-content:center;
+}
+
+.popup-cell{
+  width: 36px;
+  height: 36px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: rgba(234,240,250,.92);
+  cursor:pointer;
+  transition: .15s ease;
+}
+
+.popup-cell:hover{
+  border-color: rgba(212,163,115,.40);
+  background: rgba(212,163,115,.12);
+}
+
+.popup-close{
+  display:block;
+  margin: 0 auto;
+  padding: 8px 10px;
+  font-size: 11px;
+  border-radius: 10px;
+}
+
+/* ---------------------------
+   Score summary
+--------------------------- */
+.score-summary{
+  display:flex;
+  justify-content:center;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.score-box{
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  padding: 10px 12px;
+  min-width: 74px;
+  text-align:center;
+  background: rgba(255,255,255,.04);
+  box-shadow: var(--shadow2);
+}
+
+.score-box.total{
+  color:#141414;
+}
+
+.score-label{
+  font-size: 11px;
+  opacity: .85;
+  margin-bottom: 6px;
+}
+
+.score-value{
+  font-size: 20px;
+  font-weight: 1000;
+}
+
+/* Save button */
+.save-wrap{
+  display:flex;
+  justify-content:center;
+  margin: 26px 0 44px;
+}
+
+.save-btn{
+  padding: 12px 20px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 1000;
+  font-size: 14px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px){
+  body{ margin: 12px; }
+
+  .score-table th,
+  .score-table td{
+    font-size: 10px;
+    padding: 4px;
+  }
+
+  .shot-row input,
+  .shot-row select{
+    font-size: 10px;
+  }
+}

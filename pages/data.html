@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SYADOW | Data</title>
+
+  <link rel="stylesheet" href="../../css/syadow-ui.css">
+  <link rel="stylesheet" href="../../css/data.css">
+</head>
+
+<body class="sy-page page-data">
+  <div class="data-shell">
+
+    <header class="sy-card data-header">
+      <div class="sy-card__inner data-header__inner">
+        <div>
+          <div class="sy-muted sy-small">SYADOW</div>
+          <div class="data-title">Data</div>
+        </div>
+
+        <div class="data-filters">
+          <input id="fromDate" type="date" />
+          <input id="toDate" type="date" />
+
+          <select id="typeFilter">
+            <option value="">All Types</option>
+            <option value="practice">Practice</option>
+            <option value="round">Round</option>
+            <option value="tournament">Tournament</option>
+          </select>
+
+          <select id="clubFilter">
+            <option value="">All Clubs</option>
+            <option>Driver</option><option>3W</option><option>5W</option>
+            <option>3I</option><option>4I</option><option>5I</option>
+            <option>6I</option><option>7I</option><option>8I</option><option>9I</option>
+            <option>PW</option><option>GW</option><option>SW</option><option>LW</option>
+            <option>Putter</option>
+          </select>
+
+          <button id="refreshBtn" class="sy-btn sy-btn--primary">Refresh</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="data-grid">
+
+      <!-- Left: Sessions -->
+      <section class="sy-card">
+        <div class="sy-card__inner">
+          <div class="data-panel-title">
+            <div>Sessions</div>
+            <div class="sy-muted sy-small" id="sessionCount">0</div>
+          </div>
+
+          <div id="sessionList" class="session-list"></div>
+        </div>
+      </section>
+
+      <!-- Right: Shots -->
+      <section class="sy-card">
+        <div class="sy-card__inner">
+          <div class="data-panel-title">
+            <div>Shots</div>
+            <div class="sy-muted sy-small" id="shotsMeta">Select a session</div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Club</th>
+                  <th>Carry</th>
+                  <th>Total</th>
+                  <th>Offline</th>
+                  <th>Spin</th>
+                  <th>Launch</th>
+                  <th>Result</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody id="shotsTbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script type="module" src="./data.js"></script>
+</body>
+</html>

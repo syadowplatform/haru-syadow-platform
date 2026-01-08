@@ -1,0 +1,219 @@
+/* ======================================================
+   SYADOW UI (Global Design System)
+   - Use this across all pages
+   Brand:
+   Midnight Blue: #0B132B
+   Gunmetal: #2C2F33 → #3A506B
+   Rose Gold: #D4A373 → #E4B48E
+   ====================================================== */
+
+:root{
+  --midnight:#0B132B;
+  --gun1:#2C2F33;
+  --gun2:#3A506B;
+  --rose1:#D4A373;
+  --rose2:#E4B48E;
+
+  --bg0:#070D1F;
+  --text:#EAF0FA;
+  --muted:#93A6BD;
+  --line: rgba(255,255,255,.10);
+
+  --card: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  --cardInner: linear-gradient(180deg, rgba(58,80,107,.14), rgba(11,19,43,0));
+  --inputBg: linear-gradient(180deg, rgba(44,47,51,.40), rgba(44,47,51,.18));
+
+  --shadow: 0 18px 50px rgba(0,0,0,.45);
+  --shadow2: 0 10px 26px rgba(0,0,0,.35);
+
+  --r12:12px;
+  --r16:16px;
+}
+
+/* Base */
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
+
+body{
+  font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","Noto Sans KR",Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(900px 520px at 20% 12%, rgba(58,80,107,.35), transparent 60%),
+    radial-gradient(800px 520px at 85% 18%, rgba(212,163,115,.14), transparent 55%),
+    radial-gradient(900px 700px at 50% 110%, rgba(58,80,107,.25), transparent 62%),
+    linear-gradient(180deg, var(--bg0), var(--midnight));
+  color: var(--text);
+  margin: 16px;
+}
+
+/* Text helpers */
+.sy-muted{ color: var(--muted); }
+.sy-small{ font-size: 12px; }
+
+/* ===========================
+   Inputs (global)
+=========================== */
+input, select, textarea, button{
+  font-family: inherit;
+}
+
+input, select, textarea{
+  padding: 8px 10px;
+  font-size: 11px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  background: var(--inputBg);
+  color: var(--text);
+  outline: none;
+  transition: .16s ease;
+}
+
+input::placeholder, textarea::placeholder{
+  color: rgba(147,166,189,.55);
+}
+
+input:focus, select:focus, textarea:focus{
+  border-color: rgba(212,163,115,.60);
+  box-shadow: 0 0 0 3px rgba(212,163,115,.18);
+}
+
+/* ✅ Select dropdown readability */
+select{
+  color-scheme: dark;
+}
+
+/* Some browsers allow option styling; others may partially ignore it */
+select option, select optgroup{
+  background: #0B132B;
+  color: #EAF0FA;
+}
+
+/* ===========================
+   Buttons (global)
+=========================== */
+.sy-btn,
+button{
+  font-size: 11px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  color: var(--text);
+  cursor: pointer;
+  transition: .16s ease;
+}
+
+.sy-btn:hover,
+button:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.16);
+}
+
+.sy-btn:active,
+button:active{
+  transform: translateY(0);
+}
+
+.sy-btn--primary{
+  border: none;
+  color: #141414;
+  background: linear-gradient(135deg, var(--rose1), var(--rose2));
+  box-shadow: 0 14px 30px rgba(212,163,115,.22);
+  font-weight: 900;
+}
+
+/* ===========================
+   Surfaces / cards (global)
+=========================== */
+.sy-card{
+  border-radius: var(--r16);
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow2);
+  backdrop-filter: blur(10px);
+}
+
+.sy-card__inner{
+  padding: 12px;
+}
+
+/* ===========================
+   Section title (global)
+=========================== */
+.sy-section-title{
+  font-weight: 900;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: var(--r12);
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  letter-spacing: .2px;
+
+  border: 1px solid rgba(212,163,115,.28);
+  background: linear-gradient(135deg, rgba(212,163,115,.12), rgba(58,80,107,.10));
+  box-shadow: var(--shadow2);
+}
+
+/* ===========================
+   Tables (global)
+=========================== */
+.sy-table{
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  border-radius: var(--r16);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.sy-table th,
+.sy-table td{
+  border: 1px solid rgba(255,255,255,.08);
+  padding: 6px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.sy-table th{
+  background: linear-gradient(180deg, rgba(58,80,107,.22), rgba(11,19,43,.15));
+  color: rgba(234,240,250,.92);
+  font-weight: 900;
+}
+
+/* ===========================
+   Modal / Popup (global)
+=========================== */
+.sy-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index: 100;
+  backdrop-filter: blur(6px);
+}
+
+.sy-overlay.hidden{ display:none; }
+
+.sy-modal{
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+  border-radius: 16px;
+  padding: 14px;
+  min-width: 240px;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: var(--shadow);
+}
+
+.sy-modal__title{
+  font-size: 12px;
+  font-weight: 1000;
+  margin-bottom: 10px;
+  text-align:center;
+  letter-spacing:.2px;
+}

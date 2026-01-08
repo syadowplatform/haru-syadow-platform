@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SYADOW | Dashboard</title>
+
+  <!-- Syadow UI (지금은 배경만 써도 됨) -->
+  <link rel="stylesheet" href="./syadow-ui.css" />
+
+  <style>
+    /* ===== DASHBOARD BASE (structure only) ===== */
+
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0B132B; /* Midnight Blue */
+    }
+
+    .dashboard-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .dashboard-logo {
+      width: min(560px, 90%);
+      height: auto;
+      display: block;
+
+      /* 로고가 투명일 때 가장 깔끔한 설정 */
+      border-radius: 0;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,.4));
+    }
+
+    .dashboard-motto {
+      margin-top: 16px;
+      font-size: 13px;
+      letter-spacing: 0.4px;
+      color: rgba(234,240,250,.85);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== CENTER DASHBOARD ===== -->
+  <main class="dashboard-center">
+
+    <!-- 로고 + 심볼 (네가 가진 PNG 그대로) -->
+    <img
+      src="../assets/logo+symbol-syadow.png"
+      alt="SYADOW logo and symbol"
+      class="dashboard-logo"
+    />
+
+    <!-- 좌우명 -->
+    <div class="dashboard-motto">
+      Syadow always following you
+    </div>
+
+  </main>
+
+</body>
+</html>
