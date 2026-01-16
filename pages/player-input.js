@@ -514,6 +514,28 @@ async function handleSaveRound() {
       });
     }
 
+    function calcGIR(holeId) {
+  const par = getParByHole(holeId);
+  if (!par) return null;
+
+  const col = document.querySelector(`.shot-column[data-hole="${holeId}"]`);
+  if (!col) return null;
+
+  const shots = col.querySelectorAll(".shot-block");
+
+  let onGreenShotNum = null;
+  shots.forEach((shot, idx) => {
+    const pos = shot.querySelector(".position-select")?.value;
+    if (onGreenShotNum === null && pos === "GR") {
+      onGreenShotNum = idx + 1;
+    }
+  });
+
+  if (onGreenShotNum === null) return false;
+  return onGreenShotNum <= (par - 2);
+}
+
+
     const holes = {};
     const ALL_HOLES = ["F1","F2","F3","F4","F5","F6","F7","F8","F9","B1","B2","B3","B4","B5","B6","B7","B8","B9"];
 
