@@ -1,0 +1,11 @@
+body{
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;   /* 가로 중앙 */
+}
+.share-tech-regular {
+  font-family: "Share Tech", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+

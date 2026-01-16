@@ -180,6 +180,9 @@ h2{
   box-shadow: 0 14px 30px rgba(212,163,115,.22);
   font-weight: 900;
 }
+.save-btn {
+  color: #EAF0FA;
+}
 
 /* Smaller action buttons in cells */
 .direction-btn,

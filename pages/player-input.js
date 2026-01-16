@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", (e) => {
     if (e.target.matches(".pin-btn")) {
       const btn = e.target;
-      openPopup("green", btn, "Select Pin (9-grid)");
+      openPopup("green", btn, "Select Pin Position");
     }
   });
 
@@ -49,11 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
       let mode = "direction"; // 기본: 9방향
       if (shotBlock) {
         const posSelect = shotBlock.querySelector(".position-select");
-        if (posSelect && posSelect.value === "GIR") {
+        if (posSelect && posSelect.value === "OG") {
           mode = "green"; // GIR이면 9그리드 숫자
         }
       }
-      openPopup(mode, btn, mode === "green" ? "Select Green Grid" : "Select Direction");
+      openPopup(mode, btn, mode === "green" ? "Select Ball Position" : "Select Direction");
     }
   });
 
@@ -117,7 +117,7 @@ function addShotBlock(container, index) {
       <span class="shot-field-label">Position</span>
       <select class="position-select">
         <option value="">-</option>
-        <option value="GIR">GIR</option>
+        <option value="OG">OG</option>
         <option value="FW">FW</option>
         <option value="SH">SH</option>
         <option value="RH">RH</option>
@@ -177,7 +177,7 @@ document.addEventListener("click", (e) => {
 document.addEventListener("click", (e) => {
   if (e.target.matches(".wind-clock-btn")) {
     const btn = e.target;
-    openPopup("clock", btn, "Select Wind (Clock)");
+    openPopup("clock", btn, "Select Wind Direction");
   }
 });
 
@@ -514,6 +514,7 @@ async function handleSaveRound() {
       });
     }
 
+    
     function calcGIR(holeId) {
   const par = getParByHole(holeId);
   if (!par) return null;
@@ -533,7 +534,7 @@ async function handleSaveRound() {
 
   if (onGreenShotNum === null) return false;
   return onGreenShotNum <= (par - 2);
-}
+}   
 
 
     const holes = {};
@@ -547,6 +548,7 @@ async function handleSaveRound() {
         penalty: getPenaltyByHole(hole),
         autoScore: getAutoScoreByHole(hole),
         shots: getShotsByHole(hole),
+        gir: calcGIR(hole),
         putts: getPuttsByHole(hole),
       };
     });
